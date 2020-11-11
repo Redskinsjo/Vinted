@@ -1,0 +1,11 @@
+.super-container-main02 {
+  background-color: #eaedee;
+  height: 100%;
+}
+
+.container-main02 {
+  max-width: 1240px;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin: auto;
+}
