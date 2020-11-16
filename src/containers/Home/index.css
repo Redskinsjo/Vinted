@@ -1,0 +1,50 @@
+.super-container-CTA {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+.high-container-CTA {
+  max-width: 1240px;
+  margin: auto;
+  height: 100%;
+}
+.container-CTA {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.CTA {
+  width: 100%;
+  height: 70%;
+  border-radius: 5px;
+  background-color: white;
+  padding: 20px 40px;
+  border: 0.5px solid rgb(246, 244, 244);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.CTA h2 {
+  font-size: 44px;
+  font-weight: 800;
+}
+.CTA button {
+  font-size: 18px;
+  background-color: #2db1ba;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.CTA span {
+  font-size: 18px;
+  color: #2db1ba;
+  cursor: pointer;
+}

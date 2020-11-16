@@ -15,11 +15,13 @@
   height: 100%;
   margin-right: 40px;
   flex: 1;
+  cursor: pointer;
 }
 .header > form {
   flex: 3;
-  display: flex;
   padding-right: 40px;
+  display: flex;
+  align-items: center;
 }
 .header select {
   background-color: rgb(242, 236, 236);
@@ -31,15 +33,25 @@
   border-right: 0.5px solid lightgray;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
+  outline: none;
 }
-.header > form > input {
+.header > form > div {
+  position: relative;
+}
+.header > form > div > i {
+  color: gray;
+  position: absolute;
+  left: 10px;
+  display: flex;
+}
+.header > form > div > input {
   background-color: rgb(242, 236, 236);
   font-size: 16px;
   border: none;
   min-width: 200px;
   height: 40px;
   padding: 0;
-  padding-left: 20px;
+  padding-left: 35px;
   flex: 3;
   outline: none;
   border-top-right-radius: 6px;
@@ -55,6 +67,19 @@
   border: 1px solid #0eaeb7;
   border-radius: 6px;
   outline: none;
+  cursor: pointer;
+}
+.header-button-disconnect {
+  color: white;
+  background-color: rgb(211, 67, 67);
+  font-size: 12px;
+  min-width: 90px;
+  height: 25px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
 }
 
 .header-button-third-child {
@@ -77,4 +102,22 @@
 .header > select:last-child {
   background-color: white;
   border: none;
+}
+.super-container-navigation {
+  width: 100%;
+  border-top: 0.5px solid lightgray;
+}
+.container-navigation {
+  max-width: 1240px;
+  padding: 0 24px;
+  margin: auto;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container-navigation div {
+  font-size: 14px;
+  color: gray;
+  margin: 0 10px;
 }

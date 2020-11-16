@@ -8,4 +8,137 @@
   padding-left: 24px;
   padding-right: 24px;
   margin: auto;
+  height: 100%;
+  display: flex;
+}
+.container-image {
+  flex: 3;
+  height: 100%;
+  padding: 30px 0;
+  width: 800px;
+  display: flex;
+  justify-content: center;
+}
+.container-details {
+  flex: 1;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0 30px 30px;
+  border: 1px solid gray;
+}
+.price-and-details {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-bottom: 0.5px dotted black;
+}
+.offer-product-name {
+  width: 100%;
+  text-align: left;
+  font-size: 20px;
+}
+.offer-price-detail {
+  font-size: 26px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.product-detail {
+  color: gray;
+  display: flex;
+  justify-content: space-between;
+}
+.product-detail > span:nth-child(2) {
+  font-weight: 900;
+}
+.product-detail span {
+  margin: 10px 0;
+}
+.offer-price-detail i,
+h2 {
+  margin: 5px;
+}
+.description-and-purchase {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.carousel-root {
+  width: 100%;
+}
+.carousel-root > div:nth-child(1) img {
+  height: 600px;
+  width: 400px;
+  object-fit: cover;
+}
+
+.slide {
+  background: #eaedee !important;
+}
+.description-and-purchase h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px;
+}
+.description {
+  margin: 10px 10px;
+}
+.purchase {
+  display: flex;
+  flex-direction: column;
+}
+.ask-seller {
+  border: 0.5px solid #49b9c2;
+  color: #49b9c2;
+  background-color: white;
+  font-size: 16px;
+  outline: none;
+  padding: 7px;
+  cursor: pointer;
+}
+.purchase-now {
+  border: none;
+  color: white;
+  background-color: #49b9c2;
+  font-size: 16px;
+  outline: none;
+  padding: 7px;
+  cursor: pointer;
+}
+.add-favorite {
+  border: 0.5px solid gray;
+  color: black;
+  background-color: white;
+  font-size: 16px;
+  outline: none;
+  padding: 7px;
+  cursor: pointer;
+}
+
+@media (max-width: 1153px) {
+  .container-image {
+    flex: 3;
+    height: 80%;
+    padding: 30px 0;
+    width: 500px;
+  }
+}
+@media (max-width: 950px) {
+  .container-image {
+    flex: 3;
+    height: 50%;
+    padding: 30px 0;
+    width: 250px;
+  }
+}
+@media (max-width: 862px) {
+  .container-details {
+    width: 325px;
+  }
 }

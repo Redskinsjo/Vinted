@@ -1,18 +1,27 @@
-import React from "react";
-import { Pagination } from "antd";
-import Offer from "../Offer";
-import "./index.css";
+import React from 'react';
+import { Pagination } from 'antd';
+import Offer from '../Offer';
+import './index.css';
 
 const Main = ({ data, isLoading }) => {
   let renderOffers;
   if (!isLoading) {
     renderOffers = data.map((offer, index) => {
+      let taille;
+      for (let i = 0; i < offer.product_details.length; i++) {
+        if (offer.product_details[i].TAILLE) {
+          taille = offer.product_details[i].TAILLE;
+          break;
+        }
+      }
       return (
         <Offer
           profile_image={offer.owner.account.avatar.url}
           username={offer.owner.account.username}
           product_image={offer.product_image.url}
           price={offer.product_price}
+          size={taille ? taille : null}
+          name={offer.product_name}
           id={offer._id}
           key={index}
         />
@@ -27,13 +36,11 @@ const Main = ({ data, isLoading }) => {
           <h2>Fil d'actu</h2>
           <div
             style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
+              display: 'flex',
+              flexWrap: 'wrap',
             }}
           >
-            {" "}
-            {isLoading ? "En cours de chargement" : renderOffers}
+            {isLoading ? 'En cours de chargement' : renderOffers}
           </div>
         </div>
       </div>

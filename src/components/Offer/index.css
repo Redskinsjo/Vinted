@@ -1,17 +1,22 @@
 .container-offer {
-  width: 20%;
+  box-sizing: border-box;
+  width: calc(1240px / 5);
+  padding: 5px 10px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px;
 }
 .username-offer {
+  color: gray;
   flex: 1;
   display: flex;
   align-items: center;
 }
 .username-offer > img {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   margin: 5px;
+  margin-bottom: 10px;
   border-radius: 50%;
 }
 .username-offer > span {
@@ -19,6 +24,46 @@
 }
 .image-offer img {
   width: 100%;
-  flex: 2;
+  min-height: 320px;
+  object-fit: cover;
   cursor: pointer;
+}
+.product-details {
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+}
+.price-and-likes {
+  flex: 1;
+  font-size: 17px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price {
+  display: flex;
+  align-items: center;
+}
+.price i {
+  margin: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.size {
+  color: gray;
+  flex: 1;
+  margin: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.brand {
+  color: gray;
+  flex: 1;
+  margin: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
