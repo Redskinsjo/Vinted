@@ -33,7 +33,7 @@ const Offer = () => {
   let renderCarousel;
   if (!isLoading && offer && offer.product_pictures.length > 0) {
     renderCarousel = offer.product_pictures.map((pic, index) => {
-      return <img key={index} src={pic.url}></img>;
+      return <img key={index} src={pic.url} alt=""></img>;
     });
   }
 

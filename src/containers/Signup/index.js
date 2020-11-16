@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import parsePhoneNumber, { format } from 'libphonenumber-js';
+import parsePhoneNumber from 'libphonenumber-js';
 import './index.css';
 
-const Signup = ({ setUser, display, setDisplay }) => {
+const Signup = ({ setUser, display, setDisplay, setLoggedIn }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -58,6 +58,7 @@ const Signup = ({ setUser, display, setDisplay }) => {
               console.log(response.data);
             } else {
               const token = response.data.token;
+              setLoggedIn(true);
               setUser(token);
               setDisplay(false);
               history.push('/');
@@ -65,7 +66,7 @@ const Signup = ({ setUser, display, setDisplay }) => {
           }}
         >
           <h2>Create an account</h2>
-          <label for="username" className="label">
+          <label htmlFor="username" className="label">
             Username
           </label>
           <input
@@ -77,7 +78,7 @@ const Signup = ({ setUser, display, setDisplay }) => {
               setUsername(e.target.value);
             }}
           />
-          <label for="email" className="label">
+          <label htmlFor="email" className="label">
             Email
           </label>
           <input
@@ -89,7 +90,7 @@ const Signup = ({ setUser, display, setDisplay }) => {
               setEmail(e.target.value);
             }}
           />
-          <label for="password" className="label">
+          <label htmlFor="password" className="label">
             Password
           </label>
           <input
@@ -101,7 +102,7 @@ const Signup = ({ setUser, display, setDisplay }) => {
               setPassword(e.target.value);
             }}
           />
-          <label for="phone" className="label">
+          <label htmlFor="phone" className="label">
             Phone
           </label>
           <div style={{ display: 'flex' }}>
@@ -127,11 +128,13 @@ const Signup = ({ setUser, display, setDisplay }) => {
               <img
                 style={{ width: '40px', height: '30px' }}
                 src="https://img.icons8.com/color/48/000000/france.png"
+                alt=""
               />
             ) : phoneCountry === 'GB' ? (
               <img
                 style={{ width: '40px', height: '30px' }}
                 src="https://img.icons8.com/emoji/48/000000/united-kingdom-emoji.png"
+                alt=""
               />
             ) : null}
           </div>

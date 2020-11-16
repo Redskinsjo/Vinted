@@ -1,5 +1,4 @@
 import React from 'react';
-import { Pagination } from 'antd';
 import Offer from '../Offer';
 import './index.css';
 

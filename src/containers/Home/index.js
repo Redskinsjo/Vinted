@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import Main from '../../components/Main';
 import HomeImage from '../../assets/img/home-image.jpeg';
 import effetDechire from '../../assets/img/dechire.svg';
@@ -10,7 +10,7 @@ const Home = ({ inputTitle }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const query = new URLSearchParams(useLocation().search);
+  // const query = new URLSearchParams(useLocation().search);
 
   const fetchData = async () => {
     // const response = await Axios.get(
@@ -33,17 +33,17 @@ const Home = ({ inputTitle }) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [inputTitle]);
 
   return (
     <div>
-      <button
+      {/* <button
         onClick={() => {
           console.log(query.keys());
         }}
       >
         Get query
-      </button>
+      </button> */}
       <div style={{ position: 'relative', display: 'flex', width: '100%' }}>
         <img
           style={{

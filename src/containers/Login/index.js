@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import './index.css';
 
-const Login = ({ setUser, display, setDisplay }) => {
+const Login = ({
+  setUser,
+  display,
+  setDisplay,
+  setLoggedIn,
+  setPublishClicked,
+}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,6 +18,7 @@ const Login = ({ setUser, display, setDisplay }) => {
       className={display ? 'modalOn' : 'modalOff'}
       onClick={() => {
         setDisplay(false);
+        setPublishClicked(false);
       }}
     >
       <div
@@ -28,11 +35,11 @@ const Login = ({ setUser, display, setDisplay }) => {
               'https://lereacteurvinted.herokuapp.com/user/login',
               { email, password }
             );
-            // console.log(response);
             if (response.status !== 200) {
               console.log(response.data);
             } else {
               const token = response.data.token;
+              setLoggedIn(true);
               setUser(token);
               setDisplay(false);
             }

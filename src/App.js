@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
 import Cookie from 'js-cookie';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -9,22 +14,31 @@ import Signup from './containers/Signup/index';
 import Home from './containers/Home/index';
 import Publish from './containers/Publish/index';
 import './App.css';
+import './reset.css';
 
 function App() {
   const [token, setToken] = useState(Number(Cookie.get('token') || 0));
   const [displayModalLogin, setDisplayModalLogin] = useState(false);
   const [displayModalSignup, setDisplayModalSignup] = useState(false);
   const [inputTitle, setInputTitle] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [publishClicked, setPublishClicked] = useState(false);
 
   const setUser = (cookieToken) => {
     if (cookieToken) {
-      Cookie.set('token', cookieToken, { expires: 1 });
+      Cookie.set('token', cookieToken, { expires: 10 });
       setToken(cookieToken);
     } else {
       Cookie.remove('token');
       setToken(null);
     }
   };
+
+  useEffect(() => {
+    if (!loggedIn && publishClicked) {
+      setDisplayModalLogin(true);
+    }
+  }, [publishClicked]);
 
   return (
     <Router>
@@ -34,12 +48,16 @@ function App() {
         setDisplayModalLogin={setDisplayModalLogin}
         setDisplayModalSignup={setDisplayModalSignup}
         setInputTitle={setInputTitle}
+        setLoggedIn={setLoggedIn}
+        setPublishClicked={setPublishClicked}
       />
       {displayModalLogin ? (
         <Login
           display={displayModalLogin}
           setDisplay={setDisplayModalLogin}
           setUser={setUser}
+          setLoggedIn={setLoggedIn}
+          setPublishClicked={setPublishClicked}
         ></Login>
       ) : null}
       {displayModalSignup ? (
@@ -47,6 +65,7 @@ function App() {
           display={displayModalSignup}
           setDisplay={setDisplayModalSignup}
           setUser={setUser}
+          setLoggedIn={setLoggedIn}
         ></Signup>
       ) : null}
 
@@ -57,7 +76,7 @@ function App() {
         <Route path="/login"></Route>
         <Route path="/signup"></Route>
         <Route path="/publish">
-          <Publish />
+          {loggedIn && publishClicked ? <Publish /> : null}
         </Route>
         <Route path="/">
           <Home inputTitle={inputTitle} />

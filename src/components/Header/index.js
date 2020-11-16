@@ -9,6 +9,8 @@ const Header = ({
   setDisplayModalLogin,
   setDisplayModalSignup,
   setInputTitle,
+  setLoggedIn,
+  setPublishClicked,
 }) => {
   const history = useHistory();
   return (
@@ -43,7 +45,9 @@ const Header = ({
           {token ? (
             <button
               onClick={() => {
+                setLoggedIn(false);
                 setUser(null);
+                history.push('/');
               }}
               className="header-button-disconnect"
             >
@@ -70,11 +74,27 @@ const Header = ({
               </button>
             </div>
           )}
-          <Link to="/publish">
-            <button className="header-button-third-child">
+          {token ? (
+            <Link to="/publish">
+              <button
+                className="header-button-third-child"
+                onClick={() => {
+                  setPublishClicked(true);
+                }}
+              >
+                Vends tes articles
+              </button>
+            </Link>
+          ) : (
+            <button
+              className="header-button-third-child"
+              onClick={() => {
+                setPublishClicked(true);
+              }}
+            >
               Vends tes articles
             </button>
-          </Link>
+          )}
           <i className="far fa-question-circle"></i>{' '}
           <select type="select">
             <option value="French">Français (French)</option>
