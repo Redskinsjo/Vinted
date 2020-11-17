@@ -65,7 +65,7 @@ const Signup = ({ setUser, display, setDisplay, setLoggedIn }) => {
             }
           }}
         >
-          <h2>Create an account</h2>
+          <h2 className="h2-signup">Create an account</h2>
           <label htmlFor="username" className="label">
             Username
           </label>

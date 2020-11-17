@@ -45,7 +45,10 @@ const Login = ({
             }
           }}
         >
-          <h2 style={{ left: '110px', marginBottom: '10px' }}>
+          <h2
+            style={{ left: '110px', marginBottom: '10px' }}
+            className="h2-signup"
+          >
             Connect to your account
           </h2>
           <label htmlFor="email">Email</label>
@@ -68,7 +71,9 @@ const Login = ({
               setPassword(e.target.value);
             }}
           />
-          <button type="submit">Connectez-vous</button>
+          <button type="submit" className="button-login">
+            Connectez-vous
+          </button>
         </form>
       </div>
     </div>

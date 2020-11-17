@@ -76,7 +76,8 @@ function App() {
         <Route path="/login"></Route>
         <Route path="/signup"></Route>
         <Route path="/publish">
-          {loggedIn && publishClicked ? <Publish /> : null}
+          {loggedIn && publishClicked ? <Publish token={token} /> : null}
+          {/* <Publish token={token} /> */}
         </Route>
         <Route path="/">
           <Home inputTitle={inputTitle} />
