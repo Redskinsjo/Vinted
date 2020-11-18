@@ -35,16 +35,18 @@ const Publish = ({ token }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await Axios.post(
-        'https://lereacteurvinted.herokuapp.com/offer/publish',
-        formData,
-        {
-          headers: {
-            authorization: token,
-          },
-        }
-      );
-      console.log(response.data);
+      if (picture) {
+        const response = await Axios.post(
+          'https://lereacteurvinted.herokuapp.com/offer/publish',
+          formData,
+          {
+            headers: {
+              authorization: token,
+            },
+          }
+        );
+        console.log(response.data);
+      }
     } catch (error) {
       console.log(error.response);
     }
