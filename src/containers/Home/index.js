@@ -16,18 +16,22 @@ const Home = ({ inputTitle }) => {
     // const response = await Axios.get(
     //   'https://lereacteur-vinted-api.herokuapp.com/offers'
     // );
-    if (inputTitle) {
-      const response = await Axios.get(
-        `https://lereacteurvinted.herokuapp.com/offers?title=${inputTitle}`
-      );
-      setData(response.data);
-      setIsLoading(false);
-    } else {
-      const response = await Axios.get(
-        `https://lereacteurvinted.herokuapp.com/offers`
-      );
-      setData(response.data);
-      setIsLoading(false);
+    try {
+      if (inputTitle) {
+        const response = await Axios.get(
+          `https://lereacteurvinted.herokuapp.com/offers?title=${inputTitle}`
+        );
+        setData(response.data);
+        setIsLoading(false);
+      } else {
+        const response = await Axios.get(
+          `https://lereacteurvinted.herokuapp.com/offers`
+        );
+        setData(response.data);
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.log(error.response);
     }
   };
 

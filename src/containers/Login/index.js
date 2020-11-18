@@ -7,7 +7,12 @@ const Login = ({
   display,
   setDisplay,
   setLoggedIn,
+  publishClicked,
   setPublishClicked,
+  purchaseClicked,
+  setPurchaseClicked,
+  details,
+  setDetails,
 }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,6 +24,7 @@ const Login = ({
       onClick={() => {
         setDisplay(false);
         setPublishClicked(false);
+        setPurchaseClicked(false);
       }}
     >
       <div
@@ -31,17 +37,26 @@ const Login = ({
         <form
           onSubmit={async (e) => {
             e.preventDefault();
-            const response = await Axios.post(
-              'https://lereacteurvinted.herokuapp.com/user/login',
-              { email, password }
-            );
-            if (response.status !== 200) {
-              console.log(response.data);
-            } else {
-              const token = response.data.token;
-              setLoggedIn(true);
-              setUser(token);
-              setDisplay(false);
+            try {
+              const response = await Axios.post(
+                'https://lereacteurvinted.herokuapp.com/user/login',
+                { email, password }
+              );
+              if (response.status !== 200) {
+                console.log(response.data);
+              } else {
+                const token = response.data.token;
+                const copyDetails = Object.assign({}, details);
+                const newDetails = Object.assign(copyDetails, {
+                  user: response.data,
+                });
+                setDetails(newDetails);
+                setLoggedIn(true);
+                setUser(token);
+                setDisplay(false);
+              }
+            } catch (error) {
+              console.log(error.response);
             }
           }}
         >

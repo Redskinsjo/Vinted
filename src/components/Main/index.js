@@ -15,7 +15,9 @@ const Main = ({ data, isLoading }) => {
       }
       return (
         <Offer
-          profile_image={offer.owner.account.avatar.url}
+          profile_image={
+            offer.owner.account.avatar ? offer.owner.account.avatar.url : null
+          }
           username={offer.owner.account.username}
           product_image={offer.product_image.url}
           price={offer.product_price}

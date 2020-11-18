@@ -19,6 +19,9 @@
   display: flex;
   justify-content: center;
 }
+.one-image-only {
+  height: 600px;
+}
 .container-details {
   flex: 1;
   height: 100%;
@@ -100,15 +103,20 @@ h2 {
   font-size: 16px;
   outline: none;
   padding: 7px;
+  margin: 5px 0;
   cursor: pointer;
 }
+.link-purchase-now {
+}
 .purchase-now {
+  width: 100%;
   border: none;
   color: white;
   background-color: #49b9c2;
   font-size: 16px;
   outline: none;
   padding: 7px;
+  margin: 5px 0;
   cursor: pointer;
 }
 .add-favorite {
@@ -118,6 +126,7 @@ h2 {
   font-size: 16px;
   outline: none;
   padding: 7px;
+  margin: 5px 0;
   cursor: pointer;
 }
 

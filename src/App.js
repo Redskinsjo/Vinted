@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
-  Redirect,
+  useLocation,
   Route,
   Switch,
+  Redirect,
 } from 'react-router-dom';
 import Cookie from 'js-cookie';
 import Header from './components/Header';
@@ -13,8 +14,10 @@ import Login from './containers/Login/index';
 import Signup from './containers/Signup/index';
 import Home from './containers/Home/index';
 import Publish from './containers/Publish/index';
+import Payment from './containers/Payment/index';
 import './App.css';
 import './reset.css';
+import { useStripe } from '@stripe/react-stripe-js';
 
 function App() {
   const [token, setToken] = useState(Number(Cookie.get('token') || 0));
@@ -23,6 +26,8 @@ function App() {
   const [inputTitle, setInputTitle] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
   const [publishClicked, setPublishClicked] = useState(false);
+  const [purchaseClicked, setPurchaseClicked] = useState(false);
+  const [details, setDetails] = useState({ offer: {} });
 
   const setUser = (cookieToken) => {
     if (cookieToken) {
@@ -38,7 +43,10 @@ function App() {
     if (!loggedIn && publishClicked) {
       setDisplayModalLogin(true);
     }
-  }, [publishClicked]);
+    if (!loggedIn && purchaseClicked) {
+      setDisplayModalLogin(true);
+    }
+  }, [publishClicked, purchaseClicked]);
 
   return (
     <Router>
@@ -50,6 +58,7 @@ function App() {
         setInputTitle={setInputTitle}
         setLoggedIn={setLoggedIn}
         setPublishClicked={setPublishClicked}
+        setDetails={setDetails}
       />
       {displayModalLogin ? (
         <Login
@@ -57,7 +66,12 @@ function App() {
           setDisplay={setDisplayModalLogin}
           setUser={setUser}
           setLoggedIn={setLoggedIn}
+          publishClicked={publishClicked}
           setPublishClicked={setPublishClicked}
+          purchaseClicked={purchaseClicked}
+          setPurchaseClicked={setPurchaseClicked}
+          details={details}
+          setDetails={setDetails}
         ></Login>
       ) : null}
       {displayModalSignup ? (
@@ -68,16 +82,36 @@ function App() {
           setLoggedIn={setLoggedIn}
         ></Signup>
       ) : null}
-
+      {purchaseClicked && loggedIn ? (
+        <Redirect
+          to={{
+            pathname: '/payment',
+            state: { afterPurchaseClickedAndLogin: true },
+          }}
+        />
+      ) : null}
       <Switch>
         <Route path="/offer/:id">
-          <Offer />
+          <Offer
+            setPurchaseClicked={setPurchaseClicked}
+            token={token}
+            details={details}
+            setDetails={setDetails}
+          />
         </Route>
         <Route path="/login"></Route>
         <Route path="/signup"></Route>
         <Route path="/publish">
           {loggedIn && publishClicked ? <Publish token={token} /> : null}
           {/* <Publish token={token} /> */}
+        </Route>
+        <Route path="/payment">
+          <Payment
+            details={details}
+            setDetails={setDetails}
+            purchaseClicked={purchaseClicked}
+            setPurchaseClicked={setPurchaseClicked}
+          />
         </Route>
         <Route path="/">
           <Home inputTitle={inputTitle} />

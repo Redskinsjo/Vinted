@@ -11,6 +11,7 @@ const Header = ({
   setInputTitle,
   setLoggedIn,
   setPublishClicked,
+  setDetails,
 }) => {
   const history = useHistory();
   return (
@@ -45,6 +46,7 @@ const Header = ({
           {token ? (
             <button
               onClick={() => {
+                setDetails({ offer: {} });
                 setLoggedIn(false);
                 setUser(null);
                 history.push('/');

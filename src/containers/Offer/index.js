@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import './index.css';
 
-const Offer = () => {
+const Offer = ({ token, setPurchaseClicked, details, setDetails }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -56,7 +56,11 @@ const Offer = () => {
         <div className="container-main02">
           <div className="container-image">
             {offer && offer.product_pictures.length === 0 ? (
-              <img src={offer ? offer.product_image.url : null} alt="" />
+              <img
+                className="one-image-only"
+                src={offer ? offer.product_image.url : null}
+                alt=""
+              />
             ) : (
               <Carousel>{renderCarousel}</Carousel>
             )}
@@ -79,7 +83,51 @@ const Offer = () => {
               </div>
               <div className="purchase">
                 <button className="ask-seller">Questionner le vendeur</button>
-                <button className="purchase-now">Acheter maintenant</button>
+                {token ? (
+                  <Link
+                    to={{
+                      pathname: '/payment',
+                      state: {
+                        price: offer ? offer.product_price : null,
+                        product_name: offer ? offer.product_name : null,
+                      },
+                    }}
+                    className="link-purchase-now"
+                  >
+                    <button
+                      className="purchase-now"
+                      onClick={() => {
+                        const copyDetails = Object.assign({}, details);
+                        const newDetails = Object.assign(copyDetails, {
+                          offer: {
+                            price: offer.product_price,
+                            name: offer.product_name,
+                          },
+                        });
+                        setDetails(newDetails);
+                      }}
+                    >
+                      Acheter maintenant
+                    </button>
+                  </Link>
+                ) : (
+                  <button
+                    className="purchase-now"
+                    onClick={() => {
+                      const copyDetails = Object.assign({}, details);
+                      const newDetails = Object.assign(copyDetails, {
+                        offer: {
+                          price: offer.product_price,
+                          name: offer.product_name,
+                        },
+                      });
+                      setDetails(newDetails);
+                      setPurchaseClicked(true);
+                    }}
+                  >
+                    Acheter maintenant
+                  </button>
+                )}
                 <button className="add-favorite">Ajouter aux favoris</button>
               </div>
             </div>

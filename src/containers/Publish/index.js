@@ -13,26 +13,30 @@ const Publish = ({ token }) => {
   const [location, setLocation] = useState('');
   const [price, setPrice] = useState('');
 
-  const details = {
-    brand,
-    size,
-    color,
-    quality,
-    location,
-  };
+  // const details = {
+  //   brand,
+  //   size,
+  //   color,
+  //   quality,
+  //   location,
+  // };
 
   const formData = new FormData();
   formData.append('product_name', title);
   formData.append('product_image', picture);
   formData.append('product_price', price);
   formData.append('product_description', description);
-  formData.append('product_details', details);
+  formData.append('brand', brand);
+  formData.append('size', size);
+  formData.append('color', color);
+  formData.append('quality', quality);
+  formData.append('location', location);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await Axios.post(
-        'https://lereacteurvinted.herokuapp.com/publish',
+        'https://lereacteurvinted.herokuapp.com/offer/publish',
         formData,
         {
           headers: {
@@ -40,6 +44,7 @@ const Publish = ({ token }) => {
           },
         }
       );
+      console.log(response.data);
     } catch (error) {
       console.log(error.response);
     }
