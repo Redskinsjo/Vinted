@@ -103,7 +103,6 @@ function App() {
         <Route path="/signup"></Route>
         <Route path="/publish">
           {loggedIn && publishClicked ? <Publish token={token} /> : null}
-          {/* <Publish token={token} /> */}
         </Route>
         <Route path="/payment">
           <Payment

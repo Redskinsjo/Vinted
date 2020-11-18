@@ -25,8 +25,6 @@ const CheckoutForm = ({ price, product_name, details, setDetails }) => {
   console.log(newDetails);
 
   const handleClick = async (e) => {
-    // e.preventDefault();
-
     try {
       const cardElement = elements.getElement(CardElement);
       const stripeResponse = await stripe.createToken(cardElement, {
@@ -35,8 +33,7 @@ const CheckoutForm = ({ price, product_name, details, setDetails }) => {
       const stripeToken = stripeResponse.token.id;
 
       const response = await Axios.post(
-        // 'https://lereacteurvinted.herokuapp.com/payment',
-        'http://localhost:3001/payment',
+        'https://lereacteurvinted.herokuapp.com/payment',
         {
           stripeToken,
           details: newDetails.offer,
