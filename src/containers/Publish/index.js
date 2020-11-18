@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Axios from 'axios';
 import './index.css';
 
-const Publish = ({ token }) => {
+const Publish = ({ token, setPublishClicked }) => {
   const [picture, setPicture] = useState();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -12,6 +13,11 @@ const Publish = ({ token }) => {
   const [quality, setQuality] = useState('');
   const [location, setLocation] = useState('');
   const [price, setPrice] = useState('');
+  const routerLoc = location();
+
+  if (routerLoc.state?.afterPublishClickedAndLogin) {
+    setPublishClicked(false);
+  }
 
   // const details = {
   //   brand,

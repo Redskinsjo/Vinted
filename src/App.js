@@ -17,7 +17,6 @@ import Publish from './containers/Publish/index';
 import Payment from './containers/Payment/index';
 import './App.css';
 import './reset.css';
-import { useStripe } from '@stripe/react-stripe-js';
 
 function App() {
   const [token, setToken] = useState(Number(Cookie.get('token') || 0));
@@ -90,6 +89,14 @@ function App() {
           }}
         />
       ) : null}
+      {publishClicked && loggedIn ? (
+        <Redirect
+          to={{
+            pathname: '/publish',
+            state: { afterPublishClickedAndLogin: true },
+          }}
+        />
+      ) : null}
       <Switch>
         <Route path="/offer/:id">
           <Offer
@@ -102,7 +109,9 @@ function App() {
         <Route path="/login"></Route>
         <Route path="/signup"></Route>
         <Route path="/publish">
-          {loggedIn && publishClicked ? <Publish token={token} /> : null}
+          {/* {loggedIn && publishClicked ? ( */}
+          {/* ) : null} */}
+          <Publish token={token} setPublishClicked={setPublishClicked} />
         </Route>
         <Route path="/payment">
           <Payment
