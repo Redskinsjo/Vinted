@@ -3,6 +3,8 @@
   height: 100%;
 }
 .container-publish {
+  font-size: 18px;
+  font-weight: bold;
   background-color: lightgray;
   max-width: 1240px;
   padding-left: 24px;
@@ -32,18 +34,27 @@
 .title-publish {
   display: flex;
   align-items: center;
+  border-bottom: 0.5px solid lightgray;
+  height: 60px;
 }
 .title-publish label,
 input {
   flex: 1;
+  margin-left: 10px;
 }
 .description-publish {
   display: flex;
   height: 100%;
   align-items: flex-start;
+  border-bottom: 0.5px solid lightgray;
 }
-.description-publish label,
-textarea {
+.description-publish label {
+  margin-left: 10px;
+  flex: 1;
+  border: none;
+  outline: none;
+}
+.description-publish textarea {
   flex: 1;
   border: none;
   outline: none;
@@ -62,52 +73,70 @@ textarea {
 .brand-publish {
   display: flex;
   align-items: center;
+  border-bottom: 0.5px solid lightgray;
+  height: 60px;
 }
 .brand-publish label,
 input {
   flex: 1;
+  margin-left: 10px;
 }
 .size-publish {
   display: flex;
   align-items: center;
+  border-bottom: 0.5px solid lightgray;
+  height: 60px;
 }
 .size-publish label,
 input {
   flex: 1;
+  margin-left: 10px;
 }
 .color-publish {
   display: flex;
   align-items: center;
+  border-bottom: 0.5px solid lightgray;
+  height: 60px;
 }
 .color-publish label,
 input {
   flex: 1;
+  margin-left: 10px;
 }
 .state-publish {
   display: flex;
   align-items: center;
+  border-bottom: 0.5px solid lightgray;
+  height: 60px;
 }
 .state-publish label,
 input {
   flex: 1;
+  margin-left: 10px;
 }
 .location-publish {
   display: flex;
   align-items: center;
+  border-bottom: 0.5px solid lightgray;
+  height: 60px;
 }
 .location-publish label,
 input {
   flex: 1;
+  margin-left: 10px;
 }
 .price-publish {
   background-color: white;
   border: 1px solid gray;
   margin: 5px 0;
   display: flex;
+  border-bottom: 0.5px solid lightgray;
+  height: 60px;
 }
 .price-publish label,
 input {
   flex: 1;
+  margin-left: 10px;
 }
 .div-button-publish {
   display: flex;
@@ -119,8 +148,4 @@ input {
   color: white;
   padding: 10px 15px;
   margin: 25px 0;
-}
-.inputOnFocus {
-  background-color: rgb(248, 219, 219);
-  font-size: 18px;
 }

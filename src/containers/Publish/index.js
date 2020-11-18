@@ -13,19 +13,11 @@ const Publish = ({ token, setPublishClicked }) => {
   const [quality, setQuality] = useState('');
   const [location, setLocation] = useState('');
   const [price, setPrice] = useState('');
-  const routerLoc = location();
+  const routerLoc = useLocation();
 
   if (routerLoc.state?.afterPublishClickedAndLogin) {
     setPublishClicked(false);
   }
-
-  // const details = {
-  //   brand,
-  //   size,
-  //   color,
-  //   quality,
-  //   location,
-  // };
 
   const formData = new FormData();
   formData.append('product_name', title);
