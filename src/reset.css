@@ -1,4 +1,7 @@
-html,
+input,
+button,
+select,
+textarea,
 body,
 div,
 span,
@@ -83,7 +86,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  font-family: 'Font';
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -115,7 +118,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {

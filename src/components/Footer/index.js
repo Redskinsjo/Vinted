@@ -15,7 +15,7 @@ const Footer = () => {
           className="link-mygithub"
           href="https://github.com/Redskinsjo?tab=repositories"
         >
-          Jonathan Carnos
+          Jonathan
         </a>
       </p>
     </div>

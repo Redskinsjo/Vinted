@@ -15,7 +15,7 @@ const Header = ({
 }) => {
   const history = useHistory();
   return (
-    <div className="super-container-header">
+    <div style={{ fontFamily: 'Font' }} className="super-container-header">
       <div className="container-header">
         <div className="header">
           <img

@@ -1,6 +1,6 @@
 .container-offer {
   box-sizing: border-box;
-  width: calc(1240px / 5);
+  width: calc(1192px / 5);
   padding: 5px 10px;
   display: flex;
   flex-direction: column;

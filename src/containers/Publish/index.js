@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import Axios from 'axios';
+import 'antd/dist/antd.css';
+import { message, Button, Space } from 'antd';
 import './index.css';
 
 const Publish = ({ token, setPublishClicked }) => {
@@ -14,6 +16,7 @@ const Publish = ({ token, setPublishClicked }) => {
   const [location, setLocation] = useState('');
   const [price, setPrice] = useState('');
   const routerLoc = useLocation();
+  const routerHist = useHistory();
 
   if (routerLoc.state?.afterPublishClickedAndLogin) {
     setPublishClicked(false);
@@ -30,6 +33,16 @@ const Publish = ({ token, setPublishClicked }) => {
   formData.append('quality', quality);
   formData.append('location', location);
 
+  const success = () => {
+    message.success('Votre annonce a bien été publiée', 3, () => {
+      routerHist.push('/');
+    });
+  };
+
+  const error = () => {
+    message.error("Votre annonce n'a pas été publiée");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -43,7 +56,13 @@ const Publish = ({ token, setPublishClicked }) => {
             },
           }
         );
-        console.log(response.data);
+        console.log(response);
+        if (response.status === 200) {
+          success();
+        }
+      } else {
+        error();
+        console.log(9);
       }
     } catch (error) {
       console.log(error.response);
