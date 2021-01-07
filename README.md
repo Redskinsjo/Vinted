@@ -16,3 +16,4 @@ Les technologies utilisées sont:
 - Nodejs (Express.js)
 - Stripe (pour le paiement)
 - Cloudinary (pour le stockage des photos)
+- Mongoose (gestion de base de données MongoDB)
