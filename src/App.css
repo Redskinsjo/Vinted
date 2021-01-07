@@ -1,38 +1,38 @@
 /* Other rules */
 @media (max-width: 1153px) {
-  /* .header select {
+    /* .header select {
     display: none;
   }
   .header > form > input {
     display: none;
   } */
-  /* .header-button-first-child {
+    /* .header-button-first-child {
     display: none;
   }
 
   .header-button-third-child {
     display: none;
   } */
-  .header > i {
-    display: none;
-  }
-  .header > select:last-child {
-    display: none;
-  }
+    .header > i {
+        display: none;
+    }
+    .header > select:last-child {
+        display: none;
+    }
 }
 
 @media (max-width: 950px) {
-  .header {
-    display: flex;
-    justify-content: flex-start;
-  }
-  .header > form {
-    display: none;
-  }
-  .header > img {
-    max-width: 136.16px;
-    height: 100%;
-    margin-right: 40px;
-    flex: 1;
-  }
+    .header {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .header > form {
+        display: none;
+    }
+    .header > img {
+        max-width: 136.16px;
+        height: 100%;
+        margin-right: 40px;
+        flex: 1;
+    }
 }

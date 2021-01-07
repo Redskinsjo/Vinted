@@ -1,18 +1,21 @@
+@import url("./assets/css/stylesheet.css");
+
 /* Reset rules */
 :root {
-  --page-margin: 24px;
+    --page-margin: 24px;
 }
 html {
-  height: 100vh;
-  overflow-x: hidden;
+    height: 100vh;
+    overflow-x: hidden;
 }
 body {
-  margin: 0;
-  height: 100%;
-  font-family: 'Font';
+    font-family: "Font";
+    margin: 0;
+    height: 100%;
+    font-family: "Font";
 }
 #root {
-  height: 100%;
+    height: 100%;
 }
 /* #root > div {
   height: 100vh;
