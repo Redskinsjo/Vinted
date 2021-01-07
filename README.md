@@ -15,3 +15,4 @@ Les technologies utilisées sont:
 - React
 - Nodejs (Express.js)
 - Stripe (pour le paiement)
+- Cloudinary (pour le stockage des photos)
