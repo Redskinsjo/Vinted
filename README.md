@@ -6,7 +6,7 @@ https://vinted-copy.netlify.app/
 
 Ce site est une réplique du site Vinted, place de marché française pour la revente d'habits d'occasion.
 
-Les fonctionnalités se limitent à la connection d'un utilisateur, la publication d'une offre sur le site et l'achat des biens proposés.
+Les fonctionnalités se limitent à la connection d'un utilisateur, la publication d'une offre sur le site, la recherche de biens par leur nom et l'achat des biens proposés.
 
 ## Stack
 
