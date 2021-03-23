@@ -24,6 +24,24 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
+    <!-- Feathers -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"
+    />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="//unpkg.com/feathers-chat@4.0.0/public/base.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//unpkg.com/feathers-chat@4.0.0/public/chat.css"
+    />
+    <!-- Feathers -->
+
     <link rel="stylesheet" href="../src/assets/css/stylesheet.css" />
     <link rel="stylesheet" href="../src/reset.css" />
     <script
@@ -39,14 +57,14 @@
             (h.hj.q = h.hj.q || []).push(arguments);
           };
         h._hjSettings = { hjid: 2106537, hjsv: 6 };
-        a = o.getElementsByTagName('head')[0];
-        r = o.createElement('script');
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
         r.async = 1;
         r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
         a.appendChild(r);
-      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
     </script>
-    <title>React App</title>
+    <title>Vinted project</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -61,5 +79,9 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+    <script src="//unpkg.com/@feathersjs/client@^4.3.0/dist/feathers.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
   </body>
 </html>
