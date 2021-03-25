@@ -123,6 +123,7 @@ function App() {
       ) : null}
       {displayModalSignup ? (
         <Signup
+          setToken={setToken}
           display={displayModalSignup}
           setDisplay={setDisplayModalSignup}
           setUser={setUser}
@@ -141,7 +142,7 @@ function App() {
         />
       ) : (
         () => {
-          return setDisplayModalLogin(true);
+          setDisplayModalLogin(true);
         }
       )}
       {publishClicked && loggedIn ? (
@@ -153,7 +154,7 @@ function App() {
         />
       ) : (
         () => {
-          return setDisplayModalLogin(true);
+          setDisplayModalLogin(true);
         }
       )}
       {/* ------------------- */}
@@ -167,8 +168,7 @@ function App() {
             setDetails={setDetails}
           />
         </Route>
-        {/* <Route path="/login"></Route>
-        <Route path="/signup"></Route> */}
+
         <Route path="/publish">
           {(arg) => {
             if (token) {
