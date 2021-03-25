@@ -5,8 +5,25 @@ import parsePhoneNumber from "libphonenumber-js";
 import "./index.css";
 import "antd/dist/antd.css";
 import { message } from "antd";
+import io from "socket.io-client";
+import feathers from "@feathersjs/client";
 
-const Signup = ({ setUser, display, setDisplay, setLoggedIn }) => {
+// Establish a Socket.io connection
+const socket = io("http://localhost:3030");
+
+// Initialize our Feathers client application through Socket.io
+// with hooks and authentication.
+const client = feathers();
+client.configure(feathers.socketio(socket));
+
+// Use localStorage to store our login token
+client.configure(
+  feathers.authentication({
+    storage: window.localStorage,
+  })
+);
+
+const Signup = ({ setToken, setUser, display, setDisplay, setLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,8 +42,13 @@ const Signup = ({ setUser, display, setDisplay, setLoggedIn }) => {
         password,
         phone,
       });
-      console.log(response);
 
+      const { accessToken } = await client.authenticate({
+        strategy: "local",
+        email,
+        password,
+      });
+      setToken(accessToken);
       setLoggedIn(true);
       setDisplay(false);
     } catch (error) {
