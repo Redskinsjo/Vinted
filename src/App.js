@@ -18,7 +18,7 @@ import "./App.css";
 import "./reset.css";
 import io from "socket.io-client";
 import feathers from "@feathersjs/client";
-import Axios from "axios";
+
 
 // Establish a Socket.io connection
 const socket = io("https://lereacteurvinted.herokuapp.com");

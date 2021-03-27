@@ -8,7 +8,7 @@ import io from "socket.io-client";
 import feathers from "@feathersjs/client";
 
 // Establish a Socket.io connection
-const socket = io("https://lereacteurvinted.herokuapp.com");
+const socket = io(process.env.REACT_APP_SERVER_URL);
 
 // Initialize our Feathers client application through Socket.io
 // with hooks and authentication.
@@ -18,7 +18,8 @@ client.configure(feathers.socketio(socket));
 const Home = ({ inputTitle }) => {
   const [data, setData] = useState();
   //   const [isLoading, setIsLoading] = useState(true);
-  console.log(data);
+  console.log(process.env.REACT_APP_SERVER_URL)
+
 
   // Fonction qui récupère les biens selon la recherche par nom
   const fetchData = async () => {
