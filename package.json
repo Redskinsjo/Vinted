@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.8.2",
     "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
     "js-cookie": "^2.2.1",
     "libphonenumber-js": "^1.9.4",
     "live-server": "^1.2.1",
