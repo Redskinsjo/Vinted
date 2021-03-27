@@ -18,7 +18,7 @@ client.configure(feathers.socketio(socket));
 const Home = ({ inputTitle }) => {
   const [data, setData] = useState();
   //   const [isLoading, setIsLoading] = useState(true);
-  console.log(process.env.REACT_APP_SERVER_URL)
+  
 
 
   // Fonction qui récupère les biens selon la recherche par nom

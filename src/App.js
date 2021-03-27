@@ -21,7 +21,7 @@ import feathers from "@feathersjs/client";
 
 
 // Establish a Socket.io connection
-const socket = io("https://lereacteurvinted.herokuapp.com");
+const socket = io(process.env.REACT_APP_SERVER_URL);
 
 // Initialize our Feathers client application through Socket.io
 // with hooks and authentication.
