@@ -8,7 +8,7 @@ import io from "socket.io-client";
 import feathers from "@feathersjs/client";
 
 // Establish a Socket.io connection
-const socket = io("http://localhost:3030");
+const socket = io("https://lereacteurvinted.herokuapp.com");
 
 // Initialize our Feathers client application through Socket.io
 // with hooks and authentication.
