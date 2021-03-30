@@ -13,7 +13,7 @@ Les fonctionnalités se limitent à la connection d'un utilisateur, la publicati
 Les technologies utilisées sont:
 
 - React
-- Nodejs (Express.js)
+- Nodejs (Express.js, FeathersJs)
 - Stripe (pour le paiement)
 - Cloudinary (pour le stockage des photos)
 - Mongoose (gestion de base de données MongoDB)
