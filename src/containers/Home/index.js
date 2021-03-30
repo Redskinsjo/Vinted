@@ -29,6 +29,7 @@ const Home = ({ inputTitle }) => {
       setData(data);
     } catch (error) {
       console.log(error);
+      console.log("here")
     }
     try {
       if (inputTitle) {
